@@ -409,7 +409,19 @@ void Adafruit_GFX::drawEllipse(int16_t x1, int16_t y1, int16_t x2, int16_t y2, i
     }
     endWrite();
 }
-
+// implments kite
+void Adafruit_GFX::drawkite(int16_t x0, int16_t y0, int16_t size, uint16_t color) {
+	
+		startWrite();
+		drawFastHLine(x0-size,y0,size*2,color);
+		drawFastVLine(x0,y0-size,size*2,color);
+		drawLine(x0-size,y0,x0,y0-size,color);
+		drawLine(x0,y0-size,x0+size,y0,color);
+		drawLine(x0+size,y0,x0,y0+size,color);
+		drawLine(x0,y0+size,x0-size,y0,color);
+		endWrite();
+	
+}
 
 // Draw a triangle
 void Adafruit_GFX::drawTriangle(int16_t x0, int16_t y0,
